@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    @apply dark:bg-slate-950 dark:text-slate-100;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  * {
+    @apply border-slate-200 dark:border-slate-800;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+    @apply dark:bg-slate-900/70 dark:border-slate-700/40;
+  }
+  .glass-strong {
+    @apply bg-white/90 backdrop-blur-xl border border-white/60;
+    @apply dark:bg-slate-900/90 dark:border-slate-700/60;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100;
+    @apply dark:bg-slate-900 dark:border-slate-800;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900;
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100;
+    @apply transition-all duration-200 outline-none;
+  }
+  .skeleton {
+    @apply relative overflow-hidden bg-slate-200 dark:bg-slate-800 rounded;
+  }
+  .skeleton::after {
+    @apply absolute inset-0 -translate-x-full;
+    content: '';
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
